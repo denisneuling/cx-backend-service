@@ -1,6 +1,6 @@
 # backend-service
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.2](https://img.shields.io/badge/AppVersion-0.0.2-informational?style=flat-square)
 
 Small CX Backend Service Implementation for Testing Purposes
 
@@ -9,7 +9,7 @@ Small CX Backend Service Implementation for Testing Purposes
 ## TL;DR
 ```shell
 $ helm repo add dn https://denisneuling.github.io/cx-backend-service
-$ helm install cx-backend-service dn/cx-backend-service --version 0.0.1
+$ helm install cx-backend-service dn/cx-backend-service --version 0.0.2
 ```
 
 ## Values
