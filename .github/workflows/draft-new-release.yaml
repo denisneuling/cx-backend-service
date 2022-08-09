@@ -35,7 +35,9 @@ jobs:
       -
         name: Bump version in package.json
         run: |-
+          git stash
           npm version ${{ github.event.inputs.version }}
+          git stash pop
       -
         name: Bump version in deployment/helm
         uses: mikefarah/yq@v4.27.2
