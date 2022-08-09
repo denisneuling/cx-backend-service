@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  backend-service:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2022-08-09T09:07:13.625498849Z"
+    description: Small CX Backend Service Implementation for Testing Purposes
+    digest: d792b67d9ec4a2ba8c273664772f3bf7f81230e836df64662ffbc832896d7749
+    home: https://github.com/denisneuling/cx-backend-service
+    name: backend-service
+    type: application
+    urls:
+    - https://denisneuling.github.io/cx-backend-service/helm-charts/backend-service-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-08-09T09:07:13.624479936Z"
