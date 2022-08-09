@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+const backendService = require('../lib/backend-service'),
+      argv = require('minimist')(process.argv.slice(2)),
+      os = require('os');
+
+process.title = 'backend-service';
+
+function printHelp() {
+    console.log([
+        'usage: backend-service [options]',
+        '',
+        'options:',
+        '  --api-port    Port to use. [8080]',
+        '  --data-port   Port to use for directory listing. [8081]',
+        '  --address     Address to bind to.',
+        '  --data-dir    Data Directory. ['+os.tmpdir()+']',
+        '',
+        '  --help          Print this list and exit.',
+        '  --version       Print the version and exit.'
+    ].join('\n'));
+}
+
+function printVersion() {
+    console.log(require('../package.json').version);
+}
+
+if (argv.help) {
+    printHelp();
+    process.exit();
+}
+
+if (argv.version) {
+    printVersion()
+    process.exit();
+}
+
+
+let options = {};
+    options['api-port'] = argv['api-port'] || parseInt(process.env.BACKEND_SERVICE_API_PORT, 10) || 8080;
+    options['data-port'] = argv['data-port'] || parseInt(process.env.BACKEND_SERVICE_DATA_PORT, 10) || 8081;
+    options['address'] = argv['address'] || process.env.BACKEND_SERVICE_ADDRESS || '0.0.0.0';
+    options['data-dir'] = argv['data-dir'] || process.env.BACKEND_SERVICE_DATA_DIR || os.tmpdir();
+
+const service = backendService.createBackendService(options);
+
+service.start()
+
+process.on('SIGINT', function () {
+    service.stop();
+    process.exit();
+});
+
+process.on('SIGTERM', function () {
+    service.stop();
+    process.exit();
+});
