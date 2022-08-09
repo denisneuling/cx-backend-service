@@ -50,9 +50,12 @@ spec:
             - name: BACKEND_SERVICE_DATA_DIR
               value: /mnt/data
           ports:
-            - containerPort: {{ .Values.container.port }}
+            - containerPort: 8080
               protocol: TCP
-              name: http
+              name: frontend
+            - containerPort: 8081
+              protocol: TCP
+              name: backend
       volumes:
         - name: data
           {{- if .Values.persistence.enabled }}

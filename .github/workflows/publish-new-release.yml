@@ -140,3 +140,14 @@ jobs:
           name: ${{ env.RELEASE_VERSION }}
           draft: false
           prerelease: false
+      -
+        name: Merge main back into develop
+        run: |
+          # Prepare git env
+          git config user.name "GitHub actions"
+          git config user.email noreply@github.com
+
+          # Merge main into develop
+          git checkout develop && git merge -X theirs main --no-commit --no-ff
+
+          git push origin develop
