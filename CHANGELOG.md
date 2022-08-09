@@ -7,4 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-* Initial implementation
+## [0.0.1] - 2022-08-09
+
+-   Initial implementation
+
+[Unreleased]: https://github.com/denisneuling/cx-backend-service/compare/0.0.1...HEAD
+
+[0.0.1]: https://github.com/denisneuling/cx-backend-service/compare/d838892abccef87289abe4795442ec382f2e4a48...0.0.1
