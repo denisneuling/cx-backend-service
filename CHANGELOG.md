@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2022-08-17
+
+-   Distinguish downstram response status code, extend logging 
+
 ## [0.0.5] - 2022-08-10
 
 -   Replace serve-static and serve-index \\w custom express routes 
@@ -21,7 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Initial implementation
 
-[Unreleased]: https://github.com/denisneuling/cx-backend-service/compare/0.0.5...HEAD
+[Unreleased]: https://github.com/denisneuling/cx-backend-service/compare/0.0.6...HEAD
+
+[0.0.6]: https://github.com/denisneuling/cx-backend-service/compare/0.0.5...0.0.6
 
 [0.0.5]: https://github.com/denisneuling/cx-backend-service/compare/0.0.4...0.0.5
 
