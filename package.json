@@ -1,6 +1,6 @@
 {
   "name": "backend-service",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Catena-X dataplane backend service",
   "main": "a/done_backend-service.js",
   "scripts": {
