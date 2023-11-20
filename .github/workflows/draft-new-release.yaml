@@ -40,7 +40,7 @@ jobs:
           git stash pop
       -
         name: Bump version in deployment/helm
-        uses: mikefarah/yq@v4.31.2
+        uses: mikefarah/yq@v4.40.2
         with:
           cmd: |-
             find chart -name Chart.yaml | xargs -n1 yq -i '.appVersion = "${{ github.event.inputs.version }}" | .version = "${{ github.event.inputs.version }}"'
