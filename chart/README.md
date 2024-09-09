@@ -1,6 +1,6 @@
 # backend-service
 
-![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.7](https://img.shields.io/badge/AppVersion-0.0.7-informational?style=flat-square)
+![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.8](https://img.shields.io/badge/AppVersion-0.0.8-informational?style=flat-square)
 
 Small CX Backend Service Implementation for Testing Purposes
 
@@ -9,7 +9,7 @@ Small CX Backend Service Implementation for Testing Purposes
 ## TL;DR
 ```shell
 $ helm repo add dn https://denisneuling.github.io/cx-backend-service
-$ helm install cx-backend-service dn/cx-backend-service --version 0.0.7
+$ helm install cx-backend-service dn/cx-backend-service --version 0.0.8
 ```
 
 ## Values
@@ -28,11 +28,19 @@ $ helm install cx-backend-service dn/cx-backend-service --version 0.0.7
 | image.repository | string | `"ghcr.io/denisneuling/cx-backend-service"` | Which container image to use |
 | image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Image pull secret to create to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry) |
+| ingress.annotations | object | `{}` |  |
+| ingress.className | string | `""` |  |
+| ingress.enabled | bool | `false` | Whether to create an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource when service is created. |
+| ingress.host | string | `"chart-example.local"` |  |
+| ingress.tls.enabled | bool | `false` |  |
 | livenessProbe | object | `{"exec":{"command":["/bin/bash","-c","/bin/ps -ef | grep backend-service | grep -v grep"]},"initialDelaySeconds":10,"periodSeconds":10}` | [Liveness-Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command) to detect and remedy broken applications |
 | livenessProbe.exec | object | `{"command":["/bin/bash","-c","/bin/ps -ef | grep backend-service | grep -v grep"]}` | exec command for liveness check |
 | livenessProbe.initialDelaySeconds | int | `10` | initialDelaySeconds before performing the first probe |
 | livenessProbe.periodSeconds | int | `10` | periodSeconds between each probe |
 | nameOverride | string | `""` | Overrides the charts name |
+| networkPolicy.egress | list | `[]` | The list of egress rules to be applied to the selected pods |
+| networkPolicy.enabled | bool | `false` | Whether to create a [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) when service is created. |
+| networkPolicy.ingress | list | `[]` | The list of ingress rules to be applied to the selected pods |
 | nodeSelector | object | `{}` | [Node-Selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) to constrain the Pod to nodes with specific labels. |
 | persistence.accessMode | string | `nil` | [PersistentVolume Access Modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) Access mode to use. One of (ReadOnlyMany, ReadWriteOnce, ReadWriteMany, ReadWriteOncePod) |
 | persistence.capacity | string | `"100M"` | Capacity given to the claimed [PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) |
