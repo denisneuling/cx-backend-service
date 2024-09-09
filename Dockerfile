@@ -15,6 +15,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+USER node
+
 EXPOSE 8080 8081
 
 CMD [ "node", "bin/backend-service" ]

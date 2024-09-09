@@ -1,6 +1,6 @@
 # backend-service
 
-![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.8](https://img.shields.io/badge/AppVersion-0.0.8-informational?style=flat-square)
+![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
 
 Small CX Backend Service Implementation for Testing Purposes
 
@@ -9,7 +9,7 @@ Small CX Backend Service Implementation for Testing Purposes
 ## TL;DR
 ```shell
 $ helm repo add dn https://denisneuling.github.io/cx-backend-service
-$ helm install cx-backend-service dn/cx-backend-service --version 0.0.8
+$ helm install cx-backend-service dn/cx-backend-service --version 0.0.9
 ```
 
 ## Values
@@ -54,7 +54,11 @@ $ helm install cx-backend-service dn/cx-backend-service --version 0.0.8
 | readinessProbe.periodSeconds | int | `10` | periodSeconds between each probe |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` | [Resource management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) applied to the deployed pod |
-| securityContext | object | `{}` |  |
+| securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| securityContext.fsGroup | int | `2000` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsGroup | int | `1000` |  |
+| securityContext.runAsUser | int | `1000` |  |
 | service.backend.port | int | `8081` | Port on which to run the "backend" api |
 | service.frontend.port | int | `8080` | Port on which to run the "frontend" api |
 | service.type | string | `"ClusterIP"` | [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) to expose the running application on a set of Pods as a network service. |
