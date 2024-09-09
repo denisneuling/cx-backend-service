@@ -1,0 +1,19 @@
+{{- if .Values.networkPolicy.enabled }}
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "backend-service.fullname" . }}-netpol
+  namespace: {{ .Release.Namespace }}
+  labels:
+      {{- include "backend-service.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "backend-service.selectorLabels" . | nindent 6 }}
+  ingress:
+  - ports:
+      - protocol: TCP
+        port: {{ .Values.service.frontend.port }}
+      - protocol: TCP
+        port: {{ .Values.service.backend.port }}
+{{- end }}
